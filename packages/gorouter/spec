@@ -116,12 +116,12 @@ files:
   - code.cloudfoundry.org/vendor/github.com/honeycombio/libhoney-go/version/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/flate/*.go # gosub
-  - code.cloudfoundry.org/vendor/github.com/klauspost/compress/flate/*.s # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/fse/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/huff0/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/huff0/*.s # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/internal/cpuinfo/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/internal/cpuinfo/*.s # gosub
+  - code.cloudfoundry.org/vendor/github.com/klauspost/compress/internal/le/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/internal/snapref/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/zstd/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/klauspost/compress/zstd/*.s # gosub
