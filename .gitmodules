@@ -17,10 +17,6 @@
 	path = src/code.cloudfoundry.org/gorouter
 	url = https://github.com/cloudfoundry/gorouter
 	branch = main
-[submodule "src/code.cloudfoundry.org/routing-acceptance-tests"]
-	path = src/code.cloudfoundry.org/routing-acceptance-tests
-	url = https://github.com/cloudfoundry/routing-acceptance-tests
-	branch = main
 [submodule "src/code.cloudfoundry.org/route-registrar"]
 	path = src/code.cloudfoundry.org/route-registrar
 	url = https://github.com/cloudfoundry/route-registrar
