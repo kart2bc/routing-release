@@ -1,7 +1,3 @@
-[submodule "src/code.cloudfoundry.org/cf-tcp-router"]
-	path = src/code.cloudfoundry.org/cf-tcp-router
-	url = https://github.com/cloudfoundry/cf-tcp-router
-	branch = main
 [submodule "src/code.cloudfoundry.org/routing-api"]
 	path = src/code.cloudfoundry.org/routing-api
 	url = https://github.com/cloudfoundry/routing-api
