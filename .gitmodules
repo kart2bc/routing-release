@@ -10,10 +10,6 @@
 	path = src/code.cloudfoundry.org/routing-info
 	url = https://github.com/cloudfoundry/routing-info
 	branch = main
-[submodule "src/code.cloudfoundry.org/routing-api-cli"]
-	path = src/code.cloudfoundry.org/routing-api-cli
-	url = https://github.com/cloudfoundry/routing-api-cli
-	branch = main
 [submodule "src/code.cloudfoundry.org/cf-routing-test-helpers"]
 	path = src/code.cloudfoundry.org/cf-routing-test-helpers
 	url = https://github.com/cloudfoundry/cf-routing-test-helpers
