@@ -36,7 +36,6 @@ code.cloudfoundry.org/go-loggregator/v9/runtimeemitter
 # code.cloudfoundry.org/go-metric-registry v0.0.0-20250318085922-a92b53f5f52f
 ## explicit; go 1.23.0
 code.cloudfoundry.org/go-metric-registry
-code.cloudfoundry.org/go-metric-registry/testhelpers
 # code.cloudfoundry.org/inigo v0.0.0-20210615140442-4bdc4f6e44d5
 ## explicit
 # code.cloudfoundry.org/lager/v3 v3.30.0
