@@ -6,11 +6,3 @@
 	path = src/code.cloudfoundry.org/routing-info
 	url = https://github.com/cloudfoundry/routing-info
 	branch = main
-[submodule "src/code.cloudfoundry.org/gorouter"]
-	path = src/code.cloudfoundry.org/gorouter
-	url = https://github.com/cloudfoundry/gorouter
-	branch = main
-[submodule "src/code.cloudfoundry.org/route-registrar"]
-	path = src/code.cloudfoundry.org/route-registrar
-	url = https://github.com/cloudfoundry/route-registrar
-	branch = main
