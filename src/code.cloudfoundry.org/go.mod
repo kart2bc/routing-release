@@ -72,7 +72,7 @@ require (
 	github.com/go-test/deep v1.0.7 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
-	github.com/google/go-tpm v0.9.4 // indirect
+	github.com/google/go-tpm v0.9.5 // indirect
 	github.com/google/pprof v0.0.0-20250501235452-c0086092b71a // indirect
 	github.com/honeycombio/libhoney-go v1.25.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
