@@ -5,9 +5,9 @@ name: unit-integration-tests
 
 on:
   push:
-    branches: [ "github-action" ]
+    branches:
+      - develop
   pull_request:
-    branches: [ "github-action" ]
 
 env:
   MAPPING: |
@@ -39,7 +39,7 @@ jobs:
       - name: routing-release-repo
         uses: actions/checkout@v4
         with:
-          repository: kart2bc/routing-release.git
+          repository: cloudfoundry/routing-release.git
           ref: github-action
           submodules: recursive
           path: repo
@@ -50,7 +50,6 @@ jobs:
           path: ci
       - name: zip repo artifacts
         run: |
-          ls -l
           tar -czf repo-artifact.tar.gz repo
           tar -czf ci-artifact.tar.gz ci
       - name: upload artifact
@@ -70,7 +69,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: repo
-    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\nls -lR ${GITHUB_WORKSPACE}/ci/routing-release/helpers/ \n"
+    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\n"
     - name: template-tests
       run: |
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/run-tests-templates/task.bash
@@ -86,11 +85,9 @@ jobs:
           name: repo
     - run: |
            tar -xzvf repo-artifact.tar.gz
-           tar -xzvf ci-artifact.tar.gz
-           ls -l 
+           tar -xzvf ci-artifact.tar.gz 
     - name: build binaries
       run: |
-        ls -lR
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/build-binaries/task.bash
 #@ for package in helpers.packages_with_configure_db(data.values.internal_repos):
@@ -115,10 +112,8 @@ jobs:
     - run: |
            tar -xzvf repo-artifact.tar.gz
            tar -xzvf ci-artifact.tar.gz
-           ls -l 
     - name: build binaries
       run: |
-        ls -lR
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/build-binaries/task.bash
 #@ for package in helpers.packages_without_configure_db(data.values.internal_repos):
@@ -142,10 +137,8 @@ jobs:
     - run: |
            tar -xzvf repo-artifact.tar.gz
            tar -xzvf ci-artifact.tar.gz
-           ls -l 
     - name: build binaries
       run: |
-        ls -lR
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/build-binaries/task.bash
 #@ for package in helpers.packages_with_configure_db(data.values.internal_repos):
@@ -169,10 +162,8 @@ jobs:
     - run: |
            tar -xzvf repo-artifact.tar.gz
            tar -xzvf ci-artifact.tar.gz
-           ls -l 
     - name: build binaries
       run: |
-        ls -lR
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/build-binaries/task.bash
 #@ for package in helpers.packages_with_configure_db(data.values.internal_repos):
