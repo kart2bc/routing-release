@@ -4,10 +4,13 @@
 name: unit-integration-tests
 
 on:
-  push:
-    branches:
-      - develop
   pull_request:
+    branches:
+      - test-gh
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 env:
   MAPPING: |
