@@ -15,7 +15,7 @@ env:
     -r
     --fail-on-pending
     --randomize-all
-    --nodes=7
+    --nodes=6
     --race
     --timeout 30m
     --flake-attempts 2
