@@ -10,7 +10,6 @@ on:
       - test-gh
     types:
       - opened
-      - reopened
 
 env:
   MAPPING: |
