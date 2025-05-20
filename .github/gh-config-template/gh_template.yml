@@ -5,8 +5,6 @@ name: unit-integration-tests
 
 on:
   pull_request_target:
-    branches:
-      - develop
     types:
       - opened
       - reopened
