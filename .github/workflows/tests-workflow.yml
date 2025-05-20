@@ -34,8 +34,8 @@ jobs:
     - name: routing-release-repo
       uses: actions/checkout@v4
       with:
-        repository: cloudfoundry/routing-release.git
-        ref: develop
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.pull_request.head.ref }}
         submodules: recursive
         path: repo
     - name: Check out wg-appruntime code
