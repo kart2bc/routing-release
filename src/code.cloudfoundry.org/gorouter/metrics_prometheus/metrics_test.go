@@ -35,12 +35,12 @@ var _ = Describe("Metrics", func() {
 
 		It("sends number of nats messages received from each component", func() {
 			endpoint.Tags = map[string]string{}
-			m.CaptureRegistryMessage(endpoint, route.UPDATED.String())
-			expected := fmt.Sprintf("registry_message{action=\"%s\",component=\"\"} 1", route.UPDATED.String())
+			m.CaptureRegistryMessage(endpoint, route.EndpointUpdated.String())
+			expected := fmt.Sprintf("registry_message{action=\"%s\",component=\"\"} 1", route.EndpointUpdated.String())
 			Expect(getMetrics(r.Port())).To(ContainSubstring(expected))
 
-			m.CaptureRegistryMessage(endpoint, route.UPDATED.String())
-			expected = fmt.Sprintf("registry_message{action=\"%s\",component=\"\"} 2", route.UPDATED.String())
+			m.CaptureRegistryMessage(endpoint, route.EndpointUpdated.String())
+			expected = fmt.Sprintf("registry_message{action=\"%s\",component=\"\"} 2", route.EndpointUpdated.String())
 			Expect(getMetrics(r.Port())).To(ContainSubstring(expected))
 		})
 
@@ -97,6 +97,15 @@ var _ = Describe("Metrics", func() {
 		It("increments the routes pruned metric", func() {
 			m.CaptureRoutesPruned(50)
 			Expect(getMetrics(r.Port())).To(ContainSubstring(`routes_pruned 50`))
+		})
+
+		It("increments the routes registered metric", func() {
+			m.CaptureRoutesRegistered()
+			Expect(getMetrics(r.Port())).To(ContainSubstring(`routes_registered 1`))
+		})
+		It("increments the routes unregistered metric", func() {
+			m.CaptureRoutesUnregistered()
+			Expect(getMetrics(r.Port())).To(ContainSubstring(`routes_unregistered 1`))
 		})
 
 		Describe("captures route registration latency", func() {

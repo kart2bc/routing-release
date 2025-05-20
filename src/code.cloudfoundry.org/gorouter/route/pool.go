@@ -25,21 +25,24 @@ type PoolPutResult int
 
 func (p PoolPutResult) String() string {
 	switch p {
-	case UNMODIFIED:
+	case EndpointUnmodified:
 		return "unmodified"
-	case UPDATED:
+	case EndpointUpdated:
 		return "updated"
-	case ADDED:
+	case EndpointAdded:
 		return "added"
+	case EndpointRefreshed:
+		return "refreshed"
 	default:
 		panic("invalid PoolPutResult")
 	}
 }
 
 const (
-	UNMODIFIED = PoolPutResult(iota)
-	UPDATED
-	ADDED
+	EndpointUnmodified = PoolPutResult(iota)
+	EndpointUpdated
+	EndpointAdded
+	EndpointRefreshed
 )
 
 func NewCounter(initial int64) *Counter {
@@ -277,35 +280,58 @@ func (p *EndpointPool) Put(endpoint *Endpoint) PoolPutResult {
 	p.Lock()
 	defer p.Unlock()
 
-	var result PoolPutResult
+	var equal bool
 	e, found := p.index[endpoint.CanonicalAddr()]
 	if found {
-		result = UPDATED
-		if !e.endpoint.Equal(endpoint) {
-			e.Lock()
-			defer e.Unlock()
+		// Only calculate equal once, it's expensive.
+		equal = e.endpoint.Equal(endpoint)
+	}
 
-			if !e.endpoint.ModificationTag.SucceededBy(&endpoint.ModificationTag) {
-				return UNMODIFIED
-			}
+	switch {
+	case found && equal:
+		// This is the most common case. The endpoint has not changed but was simply re-announced
+		// to ensure gorouter is still aware of it.
+		e.updated = time.Now()
+		p.Update()
 
-			oldEndpoint := e.endpoint
-			e.endpoint = endpoint
+		return EndpointRefreshed
 
-			if oldEndpoint.PrivateInstanceId != endpoint.PrivateInstanceId {
-				delete(p.index, oldEndpoint.PrivateInstanceId)
-				p.index[endpoint.PrivateInstanceId] = e
-			}
+	case found && !e.endpoint.ModificationTag.SucceededBy(&endpoint.ModificationTag):
+		// This exists to protect against flapping when a route receives a change (e.g. a new
+		// route-service URL) and messages for the old and new config are still floating around.
+		return EndpointUnmodified
 
-			if oldEndpoint.ServerCertDomainSAN == endpoint.ServerCertDomainSAN {
-				endpoint.SetRoundTripper(oldEndpoint.RoundTripper())
-			}
+	case found && !equal:
+		// The same endpoint was announced with different data, replace the old endpoint with the
+		// new one.
+		e.Lock()
+		defer e.Unlock()
+
+		oldEndpoint := e.endpoint
+		e.endpoint = endpoint
+
+		if oldEndpoint.PrivateInstanceId != endpoint.PrivateInstanceId {
+			delete(p.index, oldEndpoint.PrivateInstanceId)
+			p.index[endpoint.PrivateInstanceId] = e
 		}
-	} else {
-		result = ADDED
+
+		if oldEndpoint.ServerCertDomainSAN == endpoint.ServerCertDomainSAN {
+			endpoint.SetRoundTripper(oldEndpoint.RoundTripper())
+		}
+
+		p.RouteSvcUrl = e.endpoint.RouteServiceUrl
+		p.setPoolLoadBalancingAlgorithm(e.endpoint)
+		e.updated = time.Now()
+		p.Update()
+
+		return EndpointUpdated
+
+	case !found:
+		// New endpoint.
 		e = &endpointElem{
 			endpoint:           endpoint,
 			index:              len(p.endpoints),
+			updated:            time.Now(),
 			maxConnsPerBackend: p.maxConnsPerBackend,
 		}
 
@@ -314,14 +340,15 @@ func (p *EndpointPool) Put(endpoint *Endpoint) PoolPutResult {
 		p.index[endpoint.CanonicalAddr()] = e
 		p.index[endpoint.PrivateInstanceId] = e
 
-	}
-	p.RouteSvcUrl = e.endpoint.RouteServiceUrl
-	p.setPoolLoadBalancingAlgorithm(e.endpoint)
-	e.updated = time.Now()
-	// set the update time of the pool
-	p.Update()
+		p.RouteSvcUrl = e.endpoint.RouteServiceUrl
+		p.setPoolLoadBalancingAlgorithm(e.endpoint)
+		p.Update()
 
-	return result
+		return EndpointAdded
+
+	default:
+		panic("quantum state discovered")
+	}
 }
 
 func (p *EndpointPool) RouteServiceUrl() string {
