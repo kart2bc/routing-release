@@ -1,8 +1,8 @@
 name: unit-integration-tests
 on:
   pull_request_target:
-    branches:
-      - test-gh-1
+    types:
+      - labeled
 env:
   MAPPING: |
     build_nats_server=src/code.cloudfoundry.org/vendor/github.com/nats-io/nats-server/v2
@@ -27,6 +27,7 @@ env:
   FUNCTIONS: ci/routing-release/helpers/configure-binaries.bash
 jobs:
   repo-clone:
+    if: github.event.label.name == 'ready-to-run'
     runs-on: ubuntu-latest
     steps:
     - name: routing-release-repo
@@ -65,7 +66,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: repo
-    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\n"
+    - run: |
+        tar -xzvf repo-artifact.tar.gz
+        tar -xzvf ci-artifact.tar.gz
     - name: template-tests
       run: |
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/run-tests-templates/task.bash
@@ -82,7 +85,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: repo
-    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\n"
+    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz \n"
     - name: build binaries
       run: |
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
@@ -92,18 +95,21 @@ jobs:
         DIR: src/code.cloudfoundry.org/gorouter
         DB: mysql
       run: |
+        "${GITHUB_WORKSPACE}"/ci/routing-release/helpers/configure-binaries.bash
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/run-bin-test/task.bash --keep-going --trace -r --fail-on-pending --randomize-all --nodes=7 --race --timeout 30m --flake-attempts 2
     - name: cf-tcp-router-mysql
       env:
         DIR: src/code.cloudfoundry.org/cf-tcp-router
         DB: mysql
       run: |
+        "${GITHUB_WORKSPACE}"/ci/routing-release/helpers/configure-binaries.bash
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/run-bin-test/task.bash --keep-going --trace -r --fail-on-pending --randomize-all --nodes=7 --race --timeout 30m --flake-attempts 2
     - name: routing-api-mysql
       env:
         DIR: src/code.cloudfoundry.org/routing-api
         DB: mysql
       run: |
+        "${GITHUB_WORKSPACE}"/ci/routing-release/helpers/configure-binaries.bash
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/run-bin-test/task.bash --keep-going --trace -r --fail-on-pending --randomize-all --nodes=7 --race --timeout 30m --flake-attempts 2
   test-repos-withoutdb:
     runs-on: ubuntu-latest
@@ -118,7 +124,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: repo
-    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\n"
+    - run: |
+        tar -xzvf repo-artifact.tar.gz
+        tar -xzvf ci-artifact.tar.gz
     - name: build binaries
       run: |
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
@@ -154,7 +162,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: repo
-    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\n"
+    - run: |
+        tar -xzvf repo-artifact.tar.gz
+        tar -xzvf ci-artifact.tar.gz
     - name: build binaries
       run: |
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
@@ -190,7 +200,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: repo
-    - run: "tar -xzvf repo-artifact.tar.gz\ntar -xzvf ci-artifact.tar.gz\n"
+    - run: |
+        tar -xzvf repo-artifact.tar.gz
+        tar -xzvf ci-artifact.tar.gz
     - name: build binaries
       run: |
         export DEFAULT_PARAMS="${GITHUB_WORKSPACE}/ci/routing-release/default-params/build-binaries/linux.yml"
