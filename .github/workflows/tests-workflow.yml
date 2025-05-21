@@ -1,6 +1,6 @@
 name: unit-integration-tests
 on:
-  pull_request_target:
+  pull_request:
     branches:
       - test-gh-1
 env:
@@ -32,7 +32,7 @@ jobs:
     - name: routing-release-repo
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        repository: kart2bc/routing-release
         ref: ${{ github.event.pull_request.head.ref }}
         submodules: recursive
         path: repo
