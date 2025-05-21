@@ -32,7 +32,7 @@ jobs:
     - name: routing-release-repo
       uses: actions/checkout@v4
       with:
-        repository: kart2bc/routing-release
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
         submodules: recursive
         path: repo
