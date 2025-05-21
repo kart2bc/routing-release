@@ -95,7 +95,6 @@ jobs:
         DIR: src/code.cloudfoundry.org/gorouter
         DB: mysql
       run: |
-        "${GITHUB_WORKSPACE}"/ci/routing-release/helpers/configure-binaries.bash
         "${GITHUB_WORKSPACE}"/ci/shared/tasks/run-bin-test/task.bash --keep-going --trace -r --fail-on-pending --randomize-all --nodes=7 --race --timeout 30m --flake-attempts 2
     - name: cf-tcp-router-mysql
       env:
