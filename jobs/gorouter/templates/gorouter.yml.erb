@@ -76,14 +76,9 @@ def status_tls
 end
 
 def max_request_header_bytes
-  # See property description for details.
-  if_p("router.max_request_header_kb") do |kb|
-    return kb * 1024
-  end
-
-  kb = p("router.max_header_kb")
+  kb = p("router.max_request_header_kb")
   if kb < 1 or kb > 1024
-    raise "Invalid router.max_header_kb value. Must be between 1 and 1,024 kb"
+    raise "Invalid router.max_request_header_kb value. Must be between 1 and 1,024 kb"
   end
 
   return kb * 1024
