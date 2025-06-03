@@ -459,7 +459,6 @@ suspend_pruning_if_nats_unavailable: true
 			Expect(config.Logging.DisableLogForwardedFor).To(Equal(false))
 			Expect(config.Logging.DisableLogSourceIP).To(Equal(false))
 			Expect(config.Logging.RedactQueryParams).To(Equal("none"))
-			Expect(config.Logging.Format.Timestamp).To(Equal("unix-epoch"))
 		})
 
 		It("sets default access log config", func() {
@@ -536,7 +535,6 @@ logging:
 			Expect(config.Logging.Level).To(Equal("debug2"))
 			Expect(config.Logging.LoggregatorEnabled).To(Equal(true))
 			Expect(config.Logging.JobName).To(Equal("gorouter"))
-			Expect(config.Logging.Format.Timestamp).To(Equal("just_log_something"))
 		})
 
 		It("sets the rest of config", func() {

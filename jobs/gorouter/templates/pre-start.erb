@@ -4,7 +4,7 @@ LOG_DIR=/var/vcap/sys/log/gorouter
 source /var/vcap/packages/routing_utils/pid_utils.sh
 source /var/vcap/packages/routing_utils/syslog_utils.sh
 
-tee_output_to_sys_log "${LOG_DIR}" "pre-start" <%= p("router.logging.format.timestamp") %>
+tee_output_to_sys_log "${LOG_DIR}" "pre-start"
 
 <%
 

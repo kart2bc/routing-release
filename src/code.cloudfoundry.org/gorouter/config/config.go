@@ -238,7 +238,7 @@ type TLSPem struct {
 var defaultLoggingConfig = LoggingConfig{
 	Level:             "debug",
 	MetronAddress:     "localhost:3457",
-	Format:            FormatConfig{"unix-epoch"},
+	Format:            FormatConfig{"rfc3339"},
 	JobName:           "gorouter",
 	RedactQueryParams: REDACT_QUERY_PARMS_NONE,
 	SyslogNetwork:     "udp",
