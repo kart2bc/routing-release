@@ -210,7 +210,6 @@ describe 'gorouter' do
           'route_services_secret_decrypt_only' => 'secret',
           'route_services_recommend_https' => false,
           'extra_headers_to_log' => 'test-header',
-          'max_header_kb' => 1_024,
           'enable_proxy' => false,
           'force_forwarded_proto_https' => false,
           'sanitize_forwarded_proto' => false,
@@ -344,29 +343,19 @@ describe 'gorouter' do
         end
       end
 
-      describe 'max_(request_)header_kb' do
+      describe 'max_request_header_kb' do
         context 'as a default' do
           it 'should set max_request_header_bytes' do
             expect(parsed_yaml['max_request_header_bytes']).to eq(1_048_576)
           end
         end
 
-        context 'when only max_header_kb is set' do
+        context 'when only max_request_header_kb is set' do
           before do
-            deployment_manifest_fragment['router']['max_header_kb'] = 10
+            deployment_manifest_fragment['router']['max_request_header_kb'] = 10
           end
           it 'should set max_request_header_bytes according to it' do
             expect(parsed_yaml['max_request_header_bytes']).to eq(10_240)
-          end
-        end
-
-        context 'when max_header_kb and max_request_header_kb are set' do
-          before do
-            deployment_manifest_fragment['router']['max_header_kb'] = 10
-            deployment_manifest_fragment['router']['max_request_header_kb'] = 20
-          end
-          it 'should set max_request_header_bytes according to max_request_header_kb' do
-            expect(parsed_yaml['max_request_header_bytes']).to eq(20_480)
           end
         end
       end
@@ -1702,22 +1691,22 @@ describe 'gorouter' do
         end
       end
 
-      context 'max_header_kb' do
+      context 'max_request_header_kb' do
         context 'less than 1' do
           before do
-            deployment_manifest_fragment['router']['max_header_kb'] = 0
+            deployment_manifest_fragment['router']['max_request_header_kb'] = 0
           end
           it 'throws an error' do
-            expect { parsed_yaml }.to raise_error(/Invalid router.max_header_kb/)
+            expect { parsed_yaml }.to raise_error(/Invalid router.max_request_header_kb/)
           end
         end
 
         context 'greater than 1mb' do
           before do
-            deployment_manifest_fragment['router']['max_header_kb'] = 1024 + 1
+            deployment_manifest_fragment['router']['max_request_header_kb'] = 1024 + 1
           end
           it 'throws an error' do
-            expect { parsed_yaml }.to raise_error(/Invalid router.max_header_kb/)
+            expect { parsed_yaml }.to raise_error(/Invalid router.max_request_header_kb/)
           end
         end
       end
