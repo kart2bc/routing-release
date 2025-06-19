@@ -6,17 +6,11 @@ set -e -x
 pidfile=/var/vcap/sys/run/bpm/gorouter/gorouter.pid
 healthchecker_pidfile=/var/vcap/sys/run/bpm/gorouter/gorouter-healthchecker.pid
 log_file=/var/vcap/sys/log/gorouter/drain.log
-log_format=<%= p("router.logging.format.timestamp") %>
 mkdir -p "$(dirname ${log_file})"
 
 log() {
   log_string=$1
-
-  if [ "$log_format" == "deprecated" ]; then
-    echo "$(date): ${log_string}" >> ${log_file}
-  else
-    echo "$(date +%Y-%m-%dT%H:%M:%S.%NZ): ${log_string}" >> ${log_file}
-  fi
+  echo "$(date +%Y-%m-%dT%H:%M:%S.%NZ): ${log_string}" >> ${log_file}
 }
 
 if [[ ! -f ${healthchecker_pidfile} ]]; then

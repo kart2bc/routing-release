@@ -404,11 +404,6 @@ if p('routing_api.enabled')
   }
 end
 
-if !['rfc3339', 'deprecated', 'unix-epoch'].include?(p('router.logging.format.timestamp'))
-  raise "'#{p('router.logging.format.timestamp')}' is not a valid timestamp format for the property 'router.logging.format.timestamp'. Valid options are: 'rfc3339', 'deprecated', and 'unix-epoch'."
-end
-
-
 extra_access_log_fields = []
 # Support `enable_log_attempts_details` which was internally migrated to the new dynamic system.
 if p('router.enable_log_attempts_details')
@@ -423,12 +418,6 @@ if_p('router.logging.extra_access_log_fields') do |extra_fields|
   extra_access_log_fields.concat(extra_fields)
 end
 
-
-timestamp_format=p('router.logging.format.timestamp')
-if timestamp_format == 'deprecated'
-  timestamp_format = 'unix-epoch'
-end
-
 params['logging'] = {
   'syslog' => p('router.logging.syslog_tag'),
   'syslog_truncate' => p('router.logging.syslog_message_limit'),
@@ -441,9 +430,6 @@ params['logging'] = {
   'disable_log_forwarded_for' => p('router.disable_log_forwarded_for'),
   'disable_log_source_ip' => p('router.disable_log_source_ip'),
   'redact_query_params' => p('router.redact_query_parameters'),
-  'format' => {
-    'timestamp' => timestamp_format,
-  },
 }
 
 params['enable_ssl'] = p('router.enable_ssl')

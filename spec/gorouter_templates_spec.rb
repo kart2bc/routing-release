@@ -1463,43 +1463,6 @@ describe 'gorouter' do
       end
 
       context 'logging' do
-        context 'when timestamp format is not provided' do
-          it 'it defaults to rfc3339' do
-            expect(parsed_yaml['logging']['format']['timestamp']).to eq('rfc3339')
-          end
-        end
-
-        context 'when timestamp format is provided' do
-          before do
-            deployment_manifest_fragment['router']['logging'] = { 'format' => { 'timestamp' => 'unix-epoch' } }
-          end
-
-          it 'it sets the value correctly' do
-            expect(parsed_yaml['logging']['format']['timestamp']).to eq('unix-epoch')
-          end
-        end
-
-        context 'when the timestamp format is set to deprecated' do
-          before do
-            deployment_manifest_fragment['router']['logging'] = { 'format' => { 'timestamp' => 'deprecated' } }
-          end
-
-          it 'sets the value to be unix-epoch' do
-            expect(parsed_yaml['logging']['format']['timestamp']).to eq('unix-epoch')
-          end
-        end
-
-        context 'when an invalid timestamp format is provided' do
-          before do
-            deployment_manifest_fragment['router']['logging'] = { 'format' => { 'timestamp' => 'meow' } }
-          end
-
-          it 'raises error' do
-            err_msg = "'meow' is not a valid timestamp format for the property 'router.logging.format.timestamp'. Valid options are: 'rfc3339', 'deprecated', and 'unix-epoch'."
-
-            expect { parsed_yaml }.to raise_error(RuntimeError, err_msg)
-          end
-        end
 
         context 'when enable_detailed_attempts_logging is not provided' do
           it 'it does not set the correspoding extra access log values' do
