@@ -9,9 +9,9 @@ replace github.com/cactus/go-statsd-client => github.com/cactus/go-statsd-client
 require (
 	code.cloudfoundry.org/cfhttp/v2 v2.47.0
 	code.cloudfoundry.org/clock v1.40.0
-	code.cloudfoundry.org/debugserver v0.52.0
+	code.cloudfoundry.org/debugserver v0.53.0
 	code.cloudfoundry.org/eventhub v0.42.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20250611124144-ca953cadd16e
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20250616201327-f53d89d4167e
 	code.cloudfoundry.org/lager/v3 v3.39.0
 	code.cloudfoundry.org/localip v0.42.0
 	code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
@@ -40,7 +40,7 @@ require (
 	github.com/urfave/cli v1.22.17
 	github.com/urfave/negroni/v3 v3.1.1
 	github.com/vito/go-sse v1.1.3
-	go.step.sm/crypto v0.66.0
+	go.step.sm/crypto v0.67.0
 	go.uber.org/zap v1.27.0
 	go.uber.org/zap/exp v0.3.0
 	golang.org/x/crypto v0.39.0
@@ -54,7 +54,7 @@ require (
 
 require (
 	code.cloudfoundry.org/bbs v0.0.0-20250414163106-a163a3b524d2 // indirect
-	code.cloudfoundry.org/diego-logging-client v0.57.0 // indirect
+	code.cloudfoundry.org/diego-logging-client v0.58.0 // indirect
 	code.cloudfoundry.org/durationjson v0.43.0 // indirect
 	code.cloudfoundry.org/go-diodes v0.0.0-20250505082646-e4c2d772c2ec // indirect
 	code.cloudfoundry.org/go-loggregator/v9 v9.2.1 // indirect

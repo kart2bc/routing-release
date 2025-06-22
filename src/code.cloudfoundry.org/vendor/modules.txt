@@ -10,10 +10,10 @@ code.cloudfoundry.org/cfhttp/v2
 ## explicit; go 1.23.0
 code.cloudfoundry.org/clock
 code.cloudfoundry.org/clock/fakeclock
-# code.cloudfoundry.org/debugserver v0.52.0
+# code.cloudfoundry.org/debugserver v0.53.0
 ## explicit; go 1.23.0
 code.cloudfoundry.org/debugserver
-# code.cloudfoundry.org/diego-logging-client v0.57.0
+# code.cloudfoundry.org/diego-logging-client v0.58.0
 ## explicit; go 1.23.0
 code.cloudfoundry.org/diego-logging-client
 # code.cloudfoundry.org/durationjson v0.43.0
@@ -30,7 +30,7 @@ code.cloudfoundry.org/go-diodes
 code.cloudfoundry.org/go-loggregator/v9
 code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2
 code.cloudfoundry.org/go-loggregator/v9/runtimeemitter
-# code.cloudfoundry.org/go-metric-registry v0.0.0-20250611124144-ca953cadd16e
+# code.cloudfoundry.org/go-metric-registry v0.0.0-20250616201327-f53d89d4167e
 ## explicit; go 1.23.0
 code.cloudfoundry.org/go-metric-registry
 # code.cloudfoundry.org/inigo v0.0.0-20210615140442-4bdc4f6e44d5
@@ -373,7 +373,7 @@ github.com/vmihailenco/msgpack/v5/msgpcode
 github.com/vmihailenco/tagparser/v2
 github.com/vmihailenco/tagparser/v2/internal
 github.com/vmihailenco/tagparser/v2/internal/parser
-# go.step.sm/crypto v0.66.0
+# go.step.sm/crypto v0.67.0
 ## explicit; go 1.23.0
 go.step.sm/crypto/fingerprint
 go.step.sm/crypto/internal/bcrypt_pbkdf
