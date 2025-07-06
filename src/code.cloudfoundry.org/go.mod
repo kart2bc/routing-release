@@ -7,13 +7,13 @@ toolchain go1.24.2
 replace github.com/cactus/go-statsd-client => github.com/cactus/go-statsd-client v2.0.2-0.20150911070441-6fa055a7b594+incompatible
 
 require (
-	code.cloudfoundry.org/cfhttp/v2 v2.47.0
-	code.cloudfoundry.org/clock v1.40.0
-	code.cloudfoundry.org/debugserver v0.53.0
-	code.cloudfoundry.org/eventhub v0.42.0
+	code.cloudfoundry.org/cfhttp/v2 v2.48.0
+	code.cloudfoundry.org/clock v1.41.0
+	code.cloudfoundry.org/debugserver v0.54.0
+	code.cloudfoundry.org/eventhub v0.43.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20250616201327-f53d89d4167e
-	code.cloudfoundry.org/lager/v3 v3.39.0
-	code.cloudfoundry.org/localip v0.42.0
+	code.cloudfoundry.org/lager/v3 v3.40.0
+	code.cloudfoundry.org/localip v0.43.0
 	code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
 	code.cloudfoundry.org/tlsconfig v0.30.0
 	github.com/armon/go-proxyproto v0.1.0
@@ -28,7 +28,7 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/kisielk/errcheck v1.9.0
 	github.com/lib/pq v1.10.9
-	github.com/nats-io/nats-server/v2 v2.11.5
+	github.com/nats-io/nats-server/v2 v2.11.6
 	github.com/nats-io/nats.go v1.43.0
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d
 	github.com/onsi/ginkgo/v2 v2.23.4
@@ -53,9 +53,9 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/bbs v0.0.0-20250627143703-e88b3ec8cd1e // indirect
-	code.cloudfoundry.org/diego-logging-client v0.58.0 // indirect
-	code.cloudfoundry.org/durationjson v0.43.0 // indirect
+	code.cloudfoundry.org/bbs v0.0.0-20250702171911-181905324ff3 // indirect
+	code.cloudfoundry.org/diego-logging-client v0.59.0 // indirect
+	code.cloudfoundry.org/durationjson v0.44.0 // indirect
 	code.cloudfoundry.org/go-diodes v0.0.0-20250505082646-e4c2d772c2ec // indirect
 	code.cloudfoundry.org/go-loggregator/v9 v9.2.1 // indirect
 	code.cloudfoundry.org/inigo v0.0.0-20210615140442-4bdc4f6e44d5 // indirect
@@ -73,7 +73,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/go-tpm v0.9.5 // indirect
-	github.com/google/pprof v0.0.0-20250607225305-033d6d78b36a // indirect
+	github.com/google/pprof v0.0.0-20250630185457-6e76a2b096b5 // indirect
 	github.com/honeycombio/libhoney-go v1.25.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
@@ -90,7 +90,7 @@ require (
 	github.com/prometheus/client_golang v1.22.0 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
 	github.com/prometheus/common v0.65.0 // indirect
-	github.com/prometheus/procfs v0.16.1 // indirect
+	github.com/prometheus/procfs v0.17.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/square/certstrap v1.3.0 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
