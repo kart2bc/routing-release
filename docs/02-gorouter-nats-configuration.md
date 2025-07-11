@@ -63,4 +63,4 @@ minimumRegistrationInterval) - (NATS Timeout * NumberOfNatsServers))/3
  Currently we do not allow the operator to set the value for
  DropletStaleThreshold and StartResponseDelayInterval, hence there is no real
  need for the above equation to calculate the ping interval yet. After long
- consideration of different scenarios we have decided configure interval with value [`20` seconds](https://github.com/cloudfoundry/gorouter/blob/main/src/code.cloudfoundry.org/gorouter/config/config.go#L199).
+ consideration of different scenarios we have decided configure interval with value [`20` seconds](https://github.com/cloudfoundry/routing-release/blob/36ed72a9977d1365eab74d3762b18553c4b13c4b/src/code.cloudfoundry.org/gorouter/config/config.go#L548-L562).
