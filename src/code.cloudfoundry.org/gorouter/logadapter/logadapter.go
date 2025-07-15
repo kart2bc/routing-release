@@ -23,11 +23,6 @@ func NewZapLevelSink(l *slog.Logger) *zapLevelSink {
 	return &zapLevelSink{logger: l}
 }
 
-func (z *zapLevelSink) Log(lf lager.LogFormat) {
-	z.logger.Info("zapLevelSink Log()", slog.String("Zap Level Sink log invoked", lf.Message),
-		slog.String("source", lf.Source))
-}
-
 func (z *zapLevelSink) LogLevel() lager.LogLevel {
 	switch strings.ToLower(grlog.GetLoggingLevel()) {
 	case "debug":
