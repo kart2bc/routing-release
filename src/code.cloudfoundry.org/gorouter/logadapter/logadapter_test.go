@@ -3,7 +3,6 @@ package logadapter
 import (
 	"log/slog"
 	"strings"
-	"testing"
 
 	"code.cloudfoundry.org/gorouter/test_util"
 	"code.cloudfoundry.org/lager/v3"
@@ -12,11 +11,6 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
-
-func TestLogadapter(t *testing.T) {
-	RegisterFailHandler(Fail)
-	RunSpecs(t, "zapLevelSink Suite")
-}
 
 var _ = Describe("zapLevelSink using testSink", func() {
 	var (

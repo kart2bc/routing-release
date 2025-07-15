@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestLogger(t *testing.T) {
+func TestLogadapter(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Log Adapter Suite")
+	RunSpecs(t, "Log adapter Suite")
 }
