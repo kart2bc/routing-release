@@ -34,8 +34,8 @@ files:
   - code.cloudfoundry.org/gorouter/fakes/*.go # gosub
   - code.cloudfoundry.org/gorouter/handlers/*.go # gosub
   - code.cloudfoundry.org/gorouter/integration/*.go # gosub
-  - code.cloudfoundry.org/gorouter/logger/*.go # gosub
   - code.cloudfoundry.org/gorouter/logadapter/*.go # gosub
+  - code.cloudfoundry.org/gorouter/logger/*.go # gosub
   - code.cloudfoundry.org/gorouter/mbus/*.go # gosub
   - code.cloudfoundry.org/gorouter/mbus/fakes/*.go # gosub
   - code.cloudfoundry.org/gorouter/metrics/*.go # gosub
