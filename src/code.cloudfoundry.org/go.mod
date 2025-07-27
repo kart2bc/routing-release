@@ -9,9 +9,9 @@ replace github.com/cactus/go-statsd-client => github.com/cactus/go-statsd-client
 require (
 	code.cloudfoundry.org/cfhttp/v2 v2.49.0
 	code.cloudfoundry.org/clock v1.42.0
-	code.cloudfoundry.org/debugserver v0.58.0
+	code.cloudfoundry.org/debugserver v0.59.0
 	code.cloudfoundry.org/eventhub v0.44.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20250714130553-c98a6df26a10
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20250721192813-3e129a8e2a89
 	code.cloudfoundry.org/lager/v3 v3.41.0
 	code.cloudfoundry.org/localip v0.44.0
 	code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
@@ -32,7 +32,7 @@ require (
 	github.com/nats-io/nats.go v1.43.0
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d
 	github.com/onsi/ginkgo/v2 v2.23.4
-	github.com/onsi/gomega v1.37.0
+	github.com/onsi/gomega v1.38.0
 	github.com/openzipkin/zipkin-go v0.4.3
 	github.com/rcrowley/go-metrics v0.0.0-20250401214520-65e299d6c5c9
 	github.com/tedsuo/ifrit v0.0.0-20230516164442-7862c310ad26
@@ -47,14 +47,14 @@ require (
 	golang.org/x/net v0.42.0
 	golang.org/x/oauth2 v0.30.0
 	golang.org/x/tools v0.35.0
-	google.golang.org/grpc v1.73.0
+	google.golang.org/grpc v1.74.2
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
-	code.cloudfoundry.org/bbs v0.0.0-20250707190811-521c7abd1edf // indirect
-	code.cloudfoundry.org/diego-logging-client v0.61.0 // indirect
+	code.cloudfoundry.org/bbs v0.0.0-20250722143946-4566c2f50160 // indirect
+	code.cloudfoundry.org/diego-logging-client v0.62.0 // indirect
 	code.cloudfoundry.org/durationjson v0.45.0 // indirect
 	code.cloudfoundry.org/go-diodes v0.0.0-20250505082646-e4c2d772c2ec // indirect
 	code.cloudfoundry.org/go-loggregator/v9 v9.2.1 // indirect
@@ -102,6 +102,6 @@ require (
 	golang.org/x/sys v0.34.0 // indirect
 	golang.org/x/text v0.27.0 // indirect
 	golang.org/x/time v0.12.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250715232539-7130f93afb79 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250721164621-a45f3dfb1074 // indirect
 	gopkg.in/alexcesaro/statsd.v2 v2.0.0 // indirect
 )
