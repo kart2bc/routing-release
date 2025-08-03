@@ -194,7 +194,7 @@ files:
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/fingerprint/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/internal/bcrypt_pbkdf/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/internal/emoji/*.go # gosub
-  - code.cloudfoundry.org/vendor/go.step.sm/crypto/internal/utils/*.go # gosub
+  - code.cloudfoundry.org/vendor/go.step.sm/crypto/internal/utils/file/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/internal/utils/utfbom/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/keyutil/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/pemutil/*.go # gosub
