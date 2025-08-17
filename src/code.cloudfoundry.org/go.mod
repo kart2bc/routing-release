@@ -7,28 +7,28 @@ toolchain go1.24.2
 replace github.com/cactus/go-statsd-client => github.com/cactus/go-statsd-client v2.0.2-0.20150911070441-6fa055a7b594+incompatible
 
 require (
-	code.cloudfoundry.org/cfhttp/v2 v2.50.0
+	code.cloudfoundry.org/cfhttp/v2 v2.51.0
 	code.cloudfoundry.org/clock v1.43.0
-	code.cloudfoundry.org/debugserver v0.61.0
-	code.cloudfoundry.org/eventhub v0.45.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20250805174920-6a3c5cac5be3
-	code.cloudfoundry.org/lager/v3 v3.42.0
+	code.cloudfoundry.org/debugserver v0.62.0
+	code.cloudfoundry.org/eventhub v0.46.0
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20250812104215-8101fb25fe80
+	code.cloudfoundry.org/lager/v3 v3.43.0
 	code.cloudfoundry.org/localip v0.45.0
 	code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
-	code.cloudfoundry.org/tlsconfig v0.32.0
+	code.cloudfoundry.org/tlsconfig v0.33.0
 	github.com/armon/go-proxyproto v0.1.0
 	github.com/cactus/go-statsd-client v3.2.1+incompatible
 	github.com/cloudfoundry-community/go-uaa v0.3.5
 	github.com/cloudfoundry/cf-test-helpers/v2 v2.13.0
 	github.com/cloudfoundry/custom-cats-reporters v0.0.2
 	github.com/cloudfoundry/dropsonde v1.1.0
-	github.com/cloudfoundry/sonde-go v0.0.0-20250505082611-517434ece96d
+	github.com/cloudfoundry/sonde-go v0.0.0-20250811070242-4f9472e98427
 	github.com/go-sql-driver/mysql v1.9.3
 	github.com/golang-jwt/jwt/v4 v4.5.2
 	github.com/jinzhu/gorm v1.9.16
 	github.com/kisielk/errcheck v1.9.0
 	github.com/lib/pq v1.10.9
-	github.com/nats-io/nats-server/v2 v2.11.7
+	github.com/nats-io/nats-server/v2 v2.11.8
 	github.com/nats-io/nats.go v1.44.0
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d
 	github.com/onsi/ginkgo/v2 v2.23.4
@@ -102,6 +102,6 @@ require (
 	golang.org/x/sys v0.35.0 // indirect
 	golang.org/x/text v0.28.0 // indirect
 	golang.org/x/time v0.12.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250804133106-a7a43d27e69b // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250811230008-5f3141c8851a // indirect
 	gopkg.in/alexcesaro/statsd.v2 v2.0.0 // indirect
 )
