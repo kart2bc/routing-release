@@ -2022,7 +2022,7 @@ var _ = Describe("Router", func() {
 
 				client := http.Client{Transport: tr}
 				resp, err := client.Do(req)
-				Expect(err).To(MatchError(ContainSubstring("remote error: tls: bad certificate")))
+				Expect(err).To(MatchError(ContainSubstring("remote error: tls: handshake failure")))
 				Expect(resp).To(BeNil())
 			})
 		})
