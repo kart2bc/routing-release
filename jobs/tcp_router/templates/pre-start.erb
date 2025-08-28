@@ -1,5 +1,4 @@
 #!/bin/bash -e
 
-<% if spec.bootstrap == true %>
+# certs need to be written to the filesystem on all VMs
 /var/vcap/packages/tcp_router/bin/config-validator -config /var/vcap/jobs/tcp_router/config/tcp_router.yml -enable-cert-creation true
-<% end %>
