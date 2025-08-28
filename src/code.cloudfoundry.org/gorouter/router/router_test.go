@@ -721,7 +721,7 @@ var _ = Describe("Router", func() {
 			return appRegistered(registry, app)
 		}).Should(BeTrue())
 
-		conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", config.Ip, config.Port))
+		conn, err := net.Dial("tcp", net.JoinHostPort(config.Ip, fmt.Sprintf("%d", config.Port)))
 		Expect(err).NotTo(HaveOccurred())
 		defer conn.Close()
 
