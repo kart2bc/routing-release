@@ -54,7 +54,7 @@ var _ = Describe("Retries", func() {
 		})
 
 		It("does not prune the endpoint on context cancelled", func() {
-			conn, err := net.Dial("tcp", net.JoinHostPort(appURL, fmt.Sprintf("%d", testState.cfg.Port)))
+			conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", appURL, testState.cfg.Port))
 			Expect(err).ToNot(HaveOccurred())
 
 			_, err = conn.Write([]byte(fmt.Sprintf("GET / HTTP/1.1\r\nHost: %s\r\n\r\n", appURL)))

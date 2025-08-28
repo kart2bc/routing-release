@@ -721,7 +721,7 @@ var _ = Describe("Router", func() {
 			return appRegistered(registry, app)
 		}).Should(BeTrue())
 
-		conn, err := net.Dial("tcp", net.JoinHostPort(config.Ip, fmt.Sprintf("%d", config.Port)))
+		conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", config.Ip, config.Port))
 		Expect(err).NotTo(HaveOccurred())
 		defer conn.Close()
 
@@ -2022,7 +2022,7 @@ var _ = Describe("Router", func() {
 
 				client := http.Client{Transport: tr}
 				resp, err := client.Do(req)
-				Expect(err).To(MatchError(ContainSubstring("remote error: tls: handshake failure")))
+				Expect(err).To(MatchError(ContainSubstring("remote error: tls: bad certificate")))
 				Expect(resp).To(BeNil())
 			})
 		})
