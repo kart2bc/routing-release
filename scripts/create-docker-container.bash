@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eu
 set -o pipefail
@@ -14,15 +14,17 @@ if [[ ${DB:-empty} == "empty" ]]; then
   DB=mysql
 fi
 
+TAG=${TAG:-latest}
+
 CONTAINER_NAME="$REPO_NAME-$DB-docker-container"
 if [[ "${DB}" == "mysql" ]] || [[ "${DB}" == "mysql-8.0" ]]; then
-  IMAGE="docker.io/cloudfoundry/tas-runtime-mysql-8.0"
+  IMAGE="docker.io/cloudfoundry/tas-runtime-mysql-8.0:${TAG}"
   DB="mysql"
 elif [[ "${DB}" == "mysql-5.7" ]]; then
-  IMAGE="docker.io/cloudfoundry/tas-runtime-mysql-5.7"
+  IMAGE="docker.io/cloudfoundry/tas-runtime-mysql-5.7:${TAG}"
   DB="mysql"
 elif [[ "${DB}" == "postgres" ]]; then
-  IMAGE="docker.io/cloudfoundry/tas-runtime-postgres"
+  IMAGE="docker.io/cloudfoundry/tas-runtime-postgres:${TAG}"
 else
   echo "Unsupported DB flavor"
   exit 1
@@ -47,4 +49,3 @@ docker run -it \
   ${ARGS} \
   "${IMAGE}" \
   /bin/bash
-  
