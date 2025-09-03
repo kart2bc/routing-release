@@ -130,6 +130,8 @@ properties:
         options (optional, object, for http routes): Custom per-route options
         terminate_frontend_tls (optional, boolean): When true, the router will terminate TLS before forwarding requests to the backend. Default: false
         alpns (optional, array): Application Layer Protocol Negotiation strings.
+        sni_routable_san(optional, string): is the SAN used to route the request to the appropriate backend. 
+          Required when `type` is `sni` and `terminate_frontend_tls` is enabled.
 
       health_check object
         name (required, string): Human-readable reference for the healthcheck
