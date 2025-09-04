@@ -1,5 +1,7 @@
 #!/bin/bash -e
-
+<% unless p("tcp_router.disable") %>
+# pre-start
 <% if spec.bootstrap == true %>
 /var/vcap/packages/tcp_router/bin/config-validator -config /var/vcap/jobs/tcp_router/config/tcp_router.yml -enable-cert-creation true
+<% end %>
 <% end %>
