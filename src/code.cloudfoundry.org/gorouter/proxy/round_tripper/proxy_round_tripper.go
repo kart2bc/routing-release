@@ -102,9 +102,8 @@ func (rt *roundTripper) RoundTrip(originalRequest *http.Request) (*http.Response
 	var res *http.Response
 	var endpoint *route.Endpoint
 
-	request := originalRequest.Clone(originalRequest.Context())
-	request, trace := traceRequest(request)
-
+	originalCtx := originalRequest.Context()
+	request := originalRequest.Clone(originalCtx)
 	if request.Body != nil {
 		// Temporarily disable closing of the body while in the RoundTrip function, since
 		// the underlying Transport will close the client request body.
@@ -143,11 +142,22 @@ func (rt *roundTripper) RoundTrip(originalRequest *http.Request) (*http.Response
 	}
 	triedEndpoints := map[string]bool{}
 
+	// It is safe to use trace inside the loop unconditionally as we set it as
+	// the first thing, but code outside the for loop should check if it's nil
+	// to be on the safe side.
+	var trace *requestTracer
 	for attempt := 1; attempt <= maxAttempts; attempt++ {
 		logger := rt.logger
 
-		// Reset the trace to prepare for new times and prevent old data from polluting our results.
-		trace.Reset()
+		// We have to set the tracing for each round-trip as we otherwise risk
+		// having some asynchronous callback modifying the previous trace even
+		// after we have reset it as the handling of connections and requests
+		// in net/http is performing most of its task concurrently. If we re-use
+		// the previous context and set the trace again this causes us to
+		// accumulate callbacks as new traces are called in addition to the
+		// existing ones which could cause issues if a request is retried a lot.
+		request := request.Clone(originalCtx)
+		request, trace = traceRequest(request)
 
 		if reqInfo.RouteServiceURL == nil {
 			// Because this for-loop is 1-indexed, we substract one from the attempt value passed to selectEndpoint,
@@ -337,14 +347,17 @@ func (rt *roundTripper) RoundTrip(originalRequest *http.Request) (*http.Response
 		rt.combinedReporter.CaptureWebSocketUpdate()
 	}
 
-	// Record the times from the last attempt, but only if it succeeded.
-	reqInfo.DnsStartedAt = trace.DnsStart()
-	reqInfo.DnsFinishedAt = trace.DnsDone()
-	reqInfo.DialStartedAt = trace.DialStart()
-	reqInfo.DialFinishedAt = trace.DialDone()
-	reqInfo.TlsHandshakeStartedAt = trace.TlsStart()
-	reqInfo.TlsHandshakeFinishedAt = trace.TlsDone()
-	reqInfo.LocalAddress = trace.LocalAddr()
+	if trace != nil {
+		// Record the times from the last attempt, but only on success and if we
+		// have a trace.
+		reqInfo.DnsStartedAt = trace.DnsStart()
+		reqInfo.DnsFinishedAt = trace.DnsDone()
+		reqInfo.DialStartedAt = trace.DialStart()
+		reqInfo.DialFinishedAt = trace.DialDone()
+		reqInfo.TlsHandshakeStartedAt = trace.TlsStart()
+		reqInfo.TlsHandshakeFinishedAt = trace.TlsDone()
+		reqInfo.LocalAddress = trace.LocalAddr()
+	}
 
 	if res != nil && endpoint.PrivateInstanceId != "" && !requestSentToRouteService(request) {
 		setupStickySession(
