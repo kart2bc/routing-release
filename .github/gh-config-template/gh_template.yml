@@ -10,8 +10,6 @@ on:
       - test-gh
     types:
       - opened
-      - reopened
-      - synchronize
 
 env:
   MAPPING: |
