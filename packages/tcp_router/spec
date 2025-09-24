@@ -42,6 +42,7 @@ files:
   - code.cloudfoundry.org/routing-api/trace/*.go # gosub
   - code.cloudfoundry.org/routing-api/uaaclient/*.go # gosub
   - code.cloudfoundry.org/vendor/code.cloudfoundry.org/tlsconfig/*.go # gosub
+  - code.cloudfoundry.org/vendor/github.com/Masterminds/semver/v3/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/bmizerany/pat/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/cloudfoundry-community/go-uaa/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/cloudfoundry-community/go-uaa/passwordcredentials/*.go # gosub
@@ -101,6 +102,7 @@ files:
   - code.cloudfoundry.org/vendor/github.com/tedsuo/ifrit/sigmon/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/tedsuo/rata/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/vito/go-sse/sse/*.go # gosub
+  - code.cloudfoundry.org/vendor/go.yaml.in/yaml/v3/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/net/html/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/net/html/atom/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/net/html/charset/*.go # gosub

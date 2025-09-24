@@ -46,6 +46,7 @@ files:
   - code.cloudfoundry.org/vendor/filippo.io/edwards25519/*.go # gosub
   - code.cloudfoundry.org/vendor/filippo.io/edwards25519/field/*.go # gosub
   - code.cloudfoundry.org/vendor/filippo.io/edwards25519/field/*.s # gosub
+  - code.cloudfoundry.org/vendor/github.com/Masterminds/semver/v3/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/bmizerany/pat/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/cactus/go-statsd-client/statsd/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/cloudfoundry-community/go-uaa/*.go # gosub
@@ -127,6 +128,7 @@ files:
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/pemutil/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/randutil/*.go # gosub
   - code.cloudfoundry.org/vendor/go.step.sm/crypto/x25519/*.go # gosub
+  - code.cloudfoundry.org/vendor/go.yaml.in/yaml/v3/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/crypto/blowfish/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/crypto/chacha20/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/crypto/chacha20/*.s # gosub

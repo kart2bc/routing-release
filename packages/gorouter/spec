@@ -77,6 +77,7 @@ files:
   - code.cloudfoundry.org/vendor/filippo.io/edwards25519/*.go # gosub
   - code.cloudfoundry.org/vendor/filippo.io/edwards25519/field/*.go # gosub
   - code.cloudfoundry.org/vendor/filippo.io/edwards25519/field/*.s # gosub
+  - code.cloudfoundry.org/vendor/github.com/Masterminds/semver/v3/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/armon/go-proxyproto/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/beorn7/perks/quantile/*.go # gosub
   - code.cloudfoundry.org/vendor/github.com/bmizerany/pat/*.go # gosub
@@ -211,6 +212,8 @@ files:
   - code.cloudfoundry.org/vendor/go.uber.org/zap/internal/pool/*.go # gosub
   - code.cloudfoundry.org/vendor/go.uber.org/zap/internal/stacktrace/*.go # gosub
   - code.cloudfoundry.org/vendor/go.uber.org/zap/zapcore/*.go # gosub
+  - code.cloudfoundry.org/vendor/go.yaml.in/yaml/v2/*.go # gosub
+  - code.cloudfoundry.org/vendor/go.yaml.in/yaml/v3/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/crypto/blake2b/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/crypto/blake2b/*.s # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/crypto/blowfish/*.go # gosub
