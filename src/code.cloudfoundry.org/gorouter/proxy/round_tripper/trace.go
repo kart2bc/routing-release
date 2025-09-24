@@ -24,20 +24,6 @@ type requestTracer struct {
 	tlsDone   atomic.Int64
 }
 
-// Reset the trace data. Helpful when performing the same request again.
-func (t *requestTracer) Reset() {
-	t.gotConn.Store(false)
-	t.connReused.Store(false)
-	t.wroteHeaders.Store(false)
-	t.localAddr.Store(nil)
-	t.dnsStart.Store(0)
-	t.dnsDone.Store(0)
-	t.dialStart.Store(0)
-	t.dialDone.Store(0)
-	t.tlsStart.Store(0)
-	t.tlsDone.Store(0)
-}
-
 // GotConn returns true if a connection (TCP + TLS) to the backend was established on the traced request.
 func (t *requestTracer) GotConn() bool {
 	return t.gotConn.Load()
