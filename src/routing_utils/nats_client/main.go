@@ -217,8 +217,7 @@ func loadConfig(path string) (*Config, error) {
 	if config.Nats.TLSEnabled {
 		certificate, err := tls.X509KeyPair([]byte(config.Nats.CertChain), []byte(config.Nats.PrivateKey))
 		if err != nil {
-			errMsg := fmt.Sprintf("Error loading NATS key pair: %s", err.Error())
-			return nil, fmt.Errorf(errMsg)
+			return nil, fmt.Errorf("Error loading NATS key pair: %s", err.Error())
 		}
 		config.Nats.ClientAuthCertificate = certificate
 
