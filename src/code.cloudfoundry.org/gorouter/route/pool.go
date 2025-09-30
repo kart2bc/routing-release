@@ -94,6 +94,8 @@ type Endpoint struct {
 	UpdatedAt              time.Time
 	RoundTripperInit       sync.Once
 	LoadBalancingAlgorithm string
+	HashHeaderName         string
+	HashBalanceFactor      float64
 }
 
 func (e *Endpoint) RoundTripper() ProxyRoundTripper {
@@ -123,6 +125,7 @@ func (e *Endpoint) Equal(e2 *Endpoint) bool {
 	if e2 == nil {
 		return false
 	}
+
 	return e.ApplicationId == e2.ApplicationId &&
 		e.addr == e2.addr &&
 		e.Protocol == e2.Protocol &&
@@ -136,6 +139,8 @@ func (e *Endpoint) Equal(e2 *Endpoint) bool {
 		e.useTls == e2.useTls &&
 		e.UpdatedAt.Equal(e2.UpdatedAt) &&
 		e.LoadBalancingAlgorithm == e2.LoadBalancingAlgorithm &&
+		e.HashHeaderName == e2.HashHeaderName &&
+		e.HashBalanceFactor == e2.HashBalanceFactor &&
 		maps.Equal(e.Tags, e2.Tags)
 
 }
@@ -200,10 +205,12 @@ type EndpointOpts struct {
 	UseTLS                  bool
 	UpdatedAt               time.Time
 	LoadBalancingAlgorithm  string
+	HashHeaderName          string
+	HashBalanceFactor       float64
 }
 
 func NewEndpoint(opts *EndpointOpts) *Endpoint {
-	return &Endpoint{
+	endpoint := &Endpoint{
 		ApplicationId:          opts.AppId,
 		AvailabilityZone:       opts.AvailabilityZone,
 		addr:                   fmt.Sprintf("%s:%d", opts.Host, opts.Port),
@@ -221,6 +228,13 @@ func NewEndpoint(opts *EndpointOpts) *Endpoint {
 		UpdatedAt:              opts.UpdatedAt,
 		LoadBalancingAlgorithm: opts.LoadBalancingAlgorithm,
 	}
+
+	if opts.LoadBalancingAlgorithm == config.LOAD_BALANCE_HB && opts.HashHeaderName != "" { // BalanceFactor is optional
+		endpoint.HashHeaderName = opts.HashHeaderName
+		endpoint.HashBalanceFactor = opts.HashBalanceFactor
+	}
+
+	return endpoint
 }
 
 func (e *Endpoint) IsTLS() bool {
@@ -587,6 +601,8 @@ func (e *Endpoint) MarshalJSON() ([]byte, error) {
 		PrivateInstanceId      string            `json:"private_instance_id,omitempty"`
 		ServerCertDomainSAN    string            `json:"server_cert_domain_san,omitempty"`
 		LoadBalancingAlgorithm string            `json:"load_balancing_algorithm,omitempty"`
+		HashHeader             string            `json:"hash_header,omitempty"`
+		HashBalance            float64           `json:"hash_balance,omitempty"`
 	}
 
 	jsonObj.Address = e.addr
@@ -600,6 +616,9 @@ func (e *Endpoint) MarshalJSON() ([]byte, error) {
 	jsonObj.PrivateInstanceId = e.PrivateInstanceId
 	jsonObj.ServerCertDomainSAN = e.ServerCertDomainSAN
 	jsonObj.LoadBalancingAlgorithm = e.LoadBalancingAlgorithm
+	jsonObj.HashHeader = e.HashHeaderName
+	jsonObj.HashBalance = e.HashBalanceFactor
+
 	return json.Marshal(jsonObj)
 }
 
