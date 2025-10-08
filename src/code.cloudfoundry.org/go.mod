@@ -7,13 +7,13 @@ toolchain go1.24.2
 replace github.com/cactus/go-statsd-client => github.com/cactus/go-statsd-client v2.0.2-0.20150911070441-6fa055a7b594+incompatible
 
 require (
-	code.cloudfoundry.org/cfhttp/v2 v2.58.0
-	code.cloudfoundry.org/clock v1.50.0
-	code.cloudfoundry.org/debugserver v0.69.0
-	code.cloudfoundry.org/eventhub v0.53.0
+	code.cloudfoundry.org/cfhttp/v2 v2.59.0
+	code.cloudfoundry.org/clock v1.51.0
+	code.cloudfoundry.org/debugserver v0.70.0
+	code.cloudfoundry.org/eventhub v0.54.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20250910081605-f8a5859593c1
-	code.cloudfoundry.org/lager/v3 v3.50.0
-	code.cloudfoundry.org/localip v0.52.0
+	code.cloudfoundry.org/lager/v3 v3.51.0
+	code.cloudfoundry.org/localip v0.53.0
 	code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
 	code.cloudfoundry.org/tlsconfig v0.35.0
 	github.com/armon/go-proxyproto v0.1.0
@@ -22,7 +22,7 @@ require (
 	github.com/cloudfoundry/cf-test-helpers/v2 v2.13.0
 	github.com/cloudfoundry/custom-cats-reporters v0.0.2
 	github.com/cloudfoundry/dropsonde v1.1.0
-	github.com/cloudfoundry/sonde-go v0.0.0-20250915135239-ebea5d8dc26e
+	github.com/cloudfoundry/sonde-go v0.0.0-20251008062332-ece9fc2bedb4
 	github.com/go-sql-driver/mysql v1.9.3
 	github.com/golang-jwt/jwt/v4 v4.5.2
 	github.com/jinzhu/gorm v1.9.16
@@ -43,20 +43,20 @@ require (
 	go.step.sm/crypto v0.70.0
 	go.uber.org/zap v1.27.0
 	go.uber.org/zap/exp v0.3.0
-	golang.org/x/crypto v0.42.0
-	golang.org/x/net v0.44.0
-	golang.org/x/oauth2 v0.31.0
+	golang.org/x/crypto v0.43.0
+	golang.org/x/net v0.45.0
+	golang.org/x/oauth2 v0.32.0
 	golang.org/x/tools v0.37.0
-	google.golang.org/grpc v1.75.1
+	google.golang.org/grpc v1.76.0
 	google.golang.org/protobuf v1.36.10
 	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
 	code.cloudfoundry.org/bbs v0.0.0-20250731191341-d1ca59879d2a // indirect
-	code.cloudfoundry.org/diego-logging-client v0.71.0 // indirect
-	code.cloudfoundry.org/durationjson v0.53.0 // indirect
-	code.cloudfoundry.org/go-diodes v0.0.0-20250909124000-1dfc755f0d96 // indirect
+	code.cloudfoundry.org/diego-logging-client v0.72.0 // indirect
+	code.cloudfoundry.org/durationjson v0.54.0 // indirect
+	code.cloudfoundry.org/go-diodes v0.0.0-20251008062456-a5530d3e3f80 // indirect
 	code.cloudfoundry.org/go-loggregator/v9 v9.2.1 // indirect
 	code.cloudfoundry.org/inigo v0.0.0-20210615140442-4bdc4f6e44d5 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
@@ -75,7 +75,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/go-tpm v0.9.6 // indirect
-	github.com/google/pprof v0.0.0-20251002213607-436353cc1ee6 // indirect
+	github.com/google/pprof v0.0.0-20251007162407-5df77e3f7d1d // indirect
 	github.com/honeycombio/libhoney-go v1.26.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
@@ -91,7 +91,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_golang v1.23.2 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
-	github.com/prometheus/common v0.66.1 // indirect
+	github.com/prometheus/common v0.67.1 // indirect
 	github.com/prometheus/procfs v0.17.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/square/certstrap v1.3.0 // indirect
@@ -101,11 +101,11 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/mod v0.28.0 // indirect
+	golang.org/x/mod v0.29.0 // indirect
 	golang.org/x/sync v0.17.0 // indirect
-	golang.org/x/sys v0.36.0 // indirect
-	golang.org/x/text v0.29.0 // indirect
-	golang.org/x/time v0.13.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251002232023-7c0ddcbb5797 // indirect
+	golang.org/x/sys v0.37.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	golang.org/x/time v0.14.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20251007200510-49b9836ed3ff // indirect
 	gopkg.in/alexcesaro/statsd.v2 v2.0.0 // indirect
 )
