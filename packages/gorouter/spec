@@ -263,6 +263,8 @@ files:
   - code.cloudfoundry.org/vendor/golang.org/x/text/language/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/text/runes/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/text/transform/*.go # gosub
+  - code.cloudfoundry.org/vendor/golang.org/x/tools/go/ast/edge/*.go # gosub
+  - code.cloudfoundry.org/vendor/golang.org/x/tools/go/ast/inspector/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/tools/go/gcexportdata/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/tools/go/packages/*.go # gosub
   - code.cloudfoundry.org/vendor/golang.org/x/tools/go/types/objectpath/*.go # gosub
