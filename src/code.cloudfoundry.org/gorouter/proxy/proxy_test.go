@@ -1781,6 +1781,7 @@ var _ = Describe("Proxy", func() {
 
 							g.Expect(err).NotTo(HaveOccurred())
 							g.Expect(string(msgBuf[:n])).To(Equal("WEBSOCKET OK"))
+							conn.Close()
 
 							g.Eventually(func() (int64, error) {
 								fi, err := f.Stat()
