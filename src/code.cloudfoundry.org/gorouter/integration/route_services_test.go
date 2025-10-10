@@ -174,6 +174,7 @@ var _ = Describe("Route services", func() {
 
 				Expect(err).NotTo(HaveOccurred())
 				Expect(string(msgBuf[:num2])).To(Equal("WEBSOCKET OK"))
+				wsConn.Close()
 
 				Eventually(func() ([]byte, error) {
 					return os.ReadFile(testState.AccessLogFilePath())

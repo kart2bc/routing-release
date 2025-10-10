@@ -26,6 +26,7 @@ func NewWebSocketApp(urls []route.Uri, rPort uint16, mbusClient *nats.Conn, dela
 
 		conn, _, err := w.(http.Hijacker).Hijack()
 		Expect(err).ToNot(HaveOccurred())
+		defer conn.Close()
 		x := test_util.NewHttpConn(conn)
 
 		resp := test_util.NewResponse(http.StatusSwitchingProtocols)
@@ -54,6 +55,7 @@ func NewFailingWebSocketApp(urls []route.Uri, rPort uint16, mbusClient *nats.Con
 
 		conn, _, err := w.(http.Hijacker).Hijack()
 		Expect(err).ToNot(HaveOccurred())
+		defer conn.Close()
 		x := test_util.NewHttpConn(conn)
 		err = x.Close()
 		Expect(err).ToNot(HaveOccurred())
