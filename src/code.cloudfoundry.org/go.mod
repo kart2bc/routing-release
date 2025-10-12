@@ -14,7 +14,7 @@ require (
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20250910081605-f8a5859593c1
 	code.cloudfoundry.org/lager/v3 v3.51.0
 	code.cloudfoundry.org/localip v0.53.0
-	code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
+	code.cloudfoundry.org/locket v0.0.0-20251009195723-b66b54ffdfa1
 	code.cloudfoundry.org/tlsconfig v0.35.0
 	github.com/armon/go-proxyproto v0.1.0
 	github.com/cactus/go-statsd-client v3.2.1+incompatible
@@ -53,7 +53,7 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/bbs v0.0.0-20250731191341-d1ca59879d2a // indirect
+	code.cloudfoundry.org/bbs v0.0.0-20251010175616-3400836a07a7 // indirect
 	code.cloudfoundry.org/diego-logging-client v0.72.0 // indirect
 	code.cloudfoundry.org/durationjson v0.54.0 // indirect
 	code.cloudfoundry.org/go-diodes v0.0.0-20251008062456-a5530d3e3f80 // indirect

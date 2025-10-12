@@ -1,4 +1,4 @@
-# code.cloudfoundry.org/bbs v0.0.0-20250731191341-d1ca59879d2a
+# code.cloudfoundry.org/bbs v0.0.0-20251010175616-3400836a07a7
 ## explicit
 code.cloudfoundry.org/bbs/db/sqldb/helpers
 code.cloudfoundry.org/bbs/db/sqldb/helpers/monitor
@@ -45,7 +45,7 @@ code.cloudfoundry.org/lager/v3/lagertest
 # code.cloudfoundry.org/localip v0.53.0
 ## explicit; go 1.24.0
 code.cloudfoundry.org/localip
-# code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201
+# code.cloudfoundry.org/locket v0.0.0-20251009195723-b66b54ffdfa1
 ## explicit
 code.cloudfoundry.org/locket
 code.cloudfoundry.org/locket/cmd/locket

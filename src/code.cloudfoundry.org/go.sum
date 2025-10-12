@@ -592,8 +592,8 @@ cloud.google.com/go/workflows v1.7.0/go.mod h1:JhSrZuVZWuiDfKEFxU0/F1PQjmpnpcoIS
 cloud.google.com/go/workflows v1.8.0/go.mod h1:ysGhmEajwZxGn1OhGOGKsTXc5PyxOc0vfKf5Af+to4M=
 cloud.google.com/go/workflows v1.9.0/go.mod h1:ZGkj1aFIOd9c8Gerkjjq7OW7I5+l6cSvT3ujaO/WwSA=
 cloud.google.com/go/workflows v1.10.0/go.mod h1:fZ8LmRmZQWacon9UCX1r/g/DfAXx5VcPALq2CxzdePw=
-code.cloudfoundry.org/bbs v0.0.0-20250731191341-d1ca59879d2a h1:mm1zVj2zIlcs4qeCLcuVs0qsDz5Eg4wx3gjLYOiyo9o=
-code.cloudfoundry.org/bbs v0.0.0-20250731191341-d1ca59879d2a/go.mod h1:XKlGVVXFi5EcHHMPzw3xgONK9PeEZuUbIC43XNwxD10=
+code.cloudfoundry.org/bbs v0.0.0-20251010175616-3400836a07a7 h1:n40dpOM2YVnnlestKbGPneBLZzVvr/5TXkiCYWhwPYA=
+code.cloudfoundry.org/bbs v0.0.0-20251010175616-3400836a07a7/go.mod h1:XKlGVVXFi5EcHHMPzw3xgONK9PeEZuUbIC43XNwxD10=
 code.cloudfoundry.org/cfhttp/v2 v2.59.0 h1:ogfjy6WWWPC+FCf1XePQ9Q+/vvZaGluWaNiNXEN9VZI=
 code.cloudfoundry.org/cfhttp/v2 v2.59.0/go.mod h1:jornxcPAEcgRh+64YxnChw9BkPf4Z9XKW7LT1IkfLcg=
 code.cloudfoundry.org/clock v1.51.0 h1:fOQlXMVY2lDVR9zIvEtoz31RwS2csJgcqwN2R/ZLUio=
@@ -618,8 +618,8 @@ code.cloudfoundry.org/lager/v3 v3.51.0 h1:FJVeX+8bWWrwPpxh9EwZs8pYViKYY9Meyt4NG0
 code.cloudfoundry.org/lager/v3 v3.51.0/go.mod h1:CBYcfc3KD0YK2TrOMqelHX8CGT0x/gMcwihgRkvbf6k=
 code.cloudfoundry.org/localip v0.53.0 h1:z/7AR8BrWiErKrQxSHcYXxY1uxQbYI4Znc03Ww5WNr8=
 code.cloudfoundry.org/localip v0.53.0/go.mod h1:3a/9haGs+JdwqPcFXkQJ0N4jzHeAHeXRAMfCyftKBAs=
-code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201 h1:m6Zwwr6HjmdXS/EGwIhar0N6ExQZvmqYSC23MNE+5jc=
-code.cloudfoundry.org/locket v0.0.0-20250423181647-b2b48694f201/go.mod h1:AwHLRkdXtttLXNB8RHgLfErJ2kKafH62AR2OClhy6xI=
+code.cloudfoundry.org/locket v0.0.0-20251009195723-b66b54ffdfa1 h1:+zUJIF2w/T0CNOA9atMOVnBYFNK3zkxcWtt7QbyJDak=
+code.cloudfoundry.org/locket v0.0.0-20251009195723-b66b54ffdfa1/go.mod h1:AwHLRkdXtttLXNB8RHgLfErJ2kKafH62AR2OClhy6xI=
 code.cloudfoundry.org/tlsconfig v0.35.0 h1:WFzRmIxJXqeG7ThOiN4f6CgHfildCarAnm6USiTvbrY=
 code.cloudfoundry.org/tlsconfig v0.35.0/go.mod h1:IzS9v40FcSVaIXmBeRvliUySB6ToEDa2Qi3K5DYo+UU=
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
