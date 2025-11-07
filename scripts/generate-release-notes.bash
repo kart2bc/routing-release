@@ -19,18 +19,13 @@ local_end_ref=$(get_end_ref_from_range "${version_range}")
 GO_MOD_LOCATION="src/code.cloudfoundry.org/go.mod";
 BLOBS_LOCATION="config/blobs.yml";
 
-get_non_bot_commits "${local_start_ref}" "${local_end_ref}"
-echo ""
-
+display_non_bot_commits "${local_start_ref}" "${local_end_ref}"
 START_REF_ROUTING_API=$(git rev-parse "${local_start_ref}:src/code.cloudfoundry.org/routing-api")
 END_REF_ROUTING_API=$(git rev-parse "${local_end_ref}:src/code.cloudfoundry.org/routing-api")
 pushd src/code.cloudfoundry.org/routing-api > /dev/null
-  get_non_bot_commits "${START_REF_ROUTING_API}" "${END_REF_ROUTING_API}" "routing-api"
+  display_non_bot_commits "${START_REF_ROUTING_API}" "${END_REF_ROUTING_API}" "routing-api"
 popd > /dev/null
 
-echo ""
 display_blob_change_info "${local_start_ref}" "${local_end_ref}" "${BLOBS_LOCATION}"
-echo ""
 display_go_mod_diff "${local_start_ref}" "${local_end_ref}" "${GO_MOD_LOCATION}"
-echo ""
 display_go_mod_diff "${local_start_ref}" "${local_end_ref}" "src/routing_utils/nats_client/go.mod" "nats-client"
